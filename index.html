@@ -114,17 +114,91 @@
     
     <section class="bg-white border-b py-8">
       <div class="container max-w-5xl mx-auto m-8">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Data Nilai Users
-        </h2>
-        <div class="w-full mb-4">
-          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+
+        <div class="charts">
+
+          <div class="chart p-4">
+            <h3 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-800">
+              Skor Post Test Manajemen Pemasaran
+            </h3>
+            <div class="w-full mb-4">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <canvas id="chart-1"></canvas>  
+          </div>
+
+          <div class="chart p-4 w-full">
+            <h3 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-800">
+              Skor Post Test Manajemen Pemasaran
+            </h3>
+            <div class="w-full mb-4">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <canvas id="chart-2"></canvas>  
+          </div>
+
+          <div class="chart p-4">
+            <h3 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-800">
+              Skor Post Test Manajemen Sumber Daya Manusia
+            </h3>
+            <div class="w-full mb-4">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <canvas id="chart-3"></canvas>  
+          </div>
+
+          <div class="chart p-4">
+            <h3 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-800">
+              Skor Pre Test Manajemen Sumber Daya Manusia
+            </h3>
+            <div class="w-full mb-4">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <canvas id="chart-4"></canvas>  
+          </div>
+
+          <div class="chart p-4">
+            <h3 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-800">
+              Skor Post Test Manajemen Operasional
+            </h3>
+            <div class="w-full mb-4">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <canvas id="chart-5"></canvas>  
+          </div>
+
+          <div class="chart p-4">
+            <h3 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-800">
+              Skor Post Test Manajemen Operasional
+            </h3>
+            <div class="w-full mb-4">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <canvas id="chart-6"></canvas>  
+          </div>
+
+          <div class="chart p-4">
+            <h3 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-800">
+              Skor Post Test Manajemen Keuangan
+            </h3>
+            <div class="w-full mb-4">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <canvas id="chart-7"></canvas>  
+          </div>
+
+          <div class="chart p-4">
+            <h3 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-800">
+              Skor Pre Test Manajemen Keuangan
+            </h3>
+            <div class="w-full mb-4">
+              <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+            </div>
+            <canvas id="chart-8"></canvas>  
+          </div>
         </div>
 
-        <div class="chart p-4">
-          <h1>Data Nilai Users</h1>
-          <canvas id="chart"></canvas>  
-        </div>
+        
 
 
         <!--
@@ -712,34 +786,39 @@
       <span class="text-black py-2 text-center w-100 block">PKM-PM | Universitas Muhammadiyah Malang</span>
     </footer>
      
-    <!-- jQuery if you need it
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
     <script>
-      const ctx = document.getElementById("chart");
 
-      const config = {
+      $("canvas").each((i,e) => {
+        $(e).css({
+          width: "99vw"
+        })
+      })
+
+      const ctx1 = document.getElementById("chart-1");
+      const ctx2 = document.getElementById("chart-2");
+      const ctx3 = document.getElementById("chart-3");
+      const ctx4 = $("#chart-4")
+      const ctx5 = $("#chart-5")
+      const ctx6 = $("#chart-6")
+      const ctx7 = $("#chart-7")
+      const ctx8 = $("#chart-8")
+
+
+      const config1 = {
         type: "bar",
         data: {
-          labels: ["Zidan", "Syaddad", "Fikrih", "Azzam", "Rizal"],
+          labels: ["Deni wahyu","Reny M","putrimia","Azis Udin","Putri berliane","Nur Ali romadhon","Abu Rizal Aji S","Abdul hari Yahya","Dosik Luhur Prihatin","Ahmad Bintang Akabari U","Heri","Dinda Umbarsari","Risma Nur Fradilah"],
           datasets: [
             {
-              label: "%",
-              data: [30, 20, 63, 88, 75],
+              label: "Skor Post Test Manajemen Pemasaran",
+              data: new Array(13).fill(100),
               backgroundColor: "#d53369",
-              barThickness: 24
-            },
-            {
-              label: "%",
-              data: [80, 25, 40, 30, 25],
-              barThickness: 23,
-              backgroundColor: "#daae51"
-            },
-          ],
+              barThickness: 18
+            }
+          ]
         },
         options: {
           indexAxis: "y",
@@ -756,11 +835,50 @@
                 display: false
               }
             }
-          }
+          },
         },
       };
 
-      new Chart(ctx, config);
+      const config2 = JSON.parse(JSON.stringify(config1))
+      config2.data.labels = ["Abu Rizal Aji", "Reny Meiningsih", "Deni Wahyu Abadi", "Dodik Luhur Prihatin", "Ahmad Bintang Akbari","Heri","Putri Cindi Egi","Nur Ali Romadhon","Aziz Udin","Putri Berliane","Abdul Hari Yahya","Desi Dwi Safira"," Adifa Cecillia"]
+      config2.data.datasets[0].data = [40,80,100,60,20,20,60,0,20,40,40,40,40]
+
+     const config3 = JSON.parse(JSON.stringify(config2))
+      config3.data.datasets[0].data = new Array(13).fill(100)
+      config3.data.datasets[0].label = "Skor Post Test Manajemen Sumber Daya Manusia"
+
+      const config4 = JSON.parse(JSON.stringify(config1))
+      config4.data.datasets[0].data = [40,60,40,60,60,60,40,40,40,40,40,20,20]
+      config4.data.datasets[0].label = "Skor Pre Test Manajemen Sumber Daya Manusia"
+
+      const config5 = JSON.parse(JSON.stringify(config3))
+      config5.data.datasets[0].label = "Skor Post Test Manajemen Operasional"
+      config5.data.labels = ["Reny Meiningsih","Abi Rizal Aji","Deni Wahyu Abadi"," Dodik Luhur Prihatin","Ahmad Bintang Akbari","Heri"," Putri Cindi Egi","Nur Ali Romadhon","Aziz Udin","Adi Irawan","Putri Berliane","Abdul Hari Yahya","Desi Dwi Safira"]
+
+      const config6 = JSON.parse(JSON.stringify(config1))
+      config6.data.datasets[0].label = "Skor Post Test Manajemen Operasional"
+      config6.data.labels = ["Aziz udin","Nur Ali Romadhon","Abu Rizal Aji S","Deni Wahyu Abadi","Heri","Ahmad Bintang Akbari U","Dodik Luhur Prihatin","Risma Nur Fadilah","Putri Cindi Egi D","Desi Dwi Safira","Abdul Hari Yahya","Dinda Umbarsari","Reny Meiningsih"]
+      config6.data.datasets[0].data = [0,20,40,20,0,20,60,40,20,0,0,0,40]
+
+      const config7 = JSON.parse(JSON.stringify(config1))
+      config7.data.datasets[0].label = "Skor Post Test Manajemen Keuangan"
+      config7.data.labels = ["Aziz udin","Nur Ali Romadhon","Abu Rizal Aji S","Deni Wahyu Abadi","Heri","Abdul Hari Yahya","Abdul Bintang Akbari","Dodik Luhur Prihatin","Risa","Mia Kusuma Putri","Desi Dwi Safira","Dinda Umbarsari","Reny Meiningsih"]
+      config7.data.datasets[0].data = [60,80,80,80,60,80,100,100,60,60,100,80,80]
+
+      const config8 = JSON.parse(JSON.stringify(config1))
+      config8.data.datasets[0].label = "Skor Pre Test Manajemen Keuangan"
+      config8.data.labels = ["Aziz udin","Nur Ali Romadhon","Abu Rizal Aji S","Deni Wahyu Abadi","Heri","Abdul Hari Yahya","Abdul Bintang Akbari","Dodik Luhur Prihatin","Risma Nur Fadhilah","Putri Cindia  Egi D","Desi Dwi Safira","Dinda Umbarsari","Reny Meiningsih"]
+      config8.data.datasets[0].data = new Array(13).fill(100)
+
+
+      new Chart(ctx1, config1);
+      new Chart(ctx2, config2);
+      new Chart(ctx3, config3);
+      new Chart(ctx4, config4);
+      new Chart(ctx5, config5);
+      new Chart(ctx6, config6);
+      new Chart(ctx7, config7);
+      new Chart(ctx8, config8);
     </script>
 
 
